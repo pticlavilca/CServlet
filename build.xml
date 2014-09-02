@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<project name="CServlet" basedir="." default="msg">
+
+	<target name="msg">
+		<echo>${ant.project.name}</echo>
+	</target>
+
+	<property name="lib.dir" value="lib"/>
+	<property name="src.dir" value="src/main/java"/>
+	<property name="class.dir" value="target/classes"/>
+
+	<path id="class.path">
+		<fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+		</fileset>
+        <pathelement path="${lib.dir}"/>
+        <pathelement path="${src.dir}"/>
+        <pathelement path="${class.dir}"/>
+        <file file="target/CServlet.jar"/>
+
+	</path>
+
+    <target name="execute" depends="msg">
+        <java classname="com.jpaul.Start">
+            <classpath refid="class.path"/>
+        </java>
+    </target>
+
+</project>
